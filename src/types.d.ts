@@ -1,5 +1,5 @@
-export interface Movie {
+export interface Character {
   id: number;
-  title: string;
+  name: string;
   isEditing: boolean;
 }
