@@ -12,7 +12,7 @@ const MovieList: React.FC<MovieListProps> = React.memo(({movies, onEdit, onDelet
     <div className="movies-container">
       <h3>To watch list:</h3>
       {movies.map((movie) => (
-        <div className="movie-item col-6 d-flex mb-3" key={movie.id}>
+        <div className="movie-item d-flex mb-3" key={movie.id}>
           <input
             className="form-control"
             type="text"

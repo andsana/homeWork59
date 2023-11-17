@@ -9,7 +9,7 @@ interface Props {
 
 const MovieForm: React.FC<Props> = ({ newMovie, addMovie, inputChange, formSubmit }) => {
   return (
-    <form className="d-flex mb-3 mt-3 col-6" onSubmit={formSubmit}>
+    <form className="d-flex mb-3" onSubmit={formSubmit}>
       <input
         className="form-control"
         type="text"

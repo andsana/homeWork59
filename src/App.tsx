@@ -1,7 +1,8 @@
 import React, {useState} from 'react';
 import {Movie} from './types';
-import MovieList from './components/movie/MovieList';
-import MovieForm from './components/movie/MovieForm';
+import MovieList from './components/Movie/MovieList';
+import MovieForm from './components/Movie/MovieForm';
+import Joke from './components/Joke/Joke';
 
 function App() {
   const [movies, setMovies] = useState<Movie[]>([]);
@@ -13,7 +14,7 @@ function App() {
   };
 
   const addMovie = () => {
-    if (newMovie.trim() !== '') {
+    if (newMovie !== '') {
       setMovies(prevMovies => {
         const id = Math.floor(Math.random() * 100);
         const updatedMovies: Movie[] = [...prevMovies, {id, title: newMovie, isEditing: false}];
@@ -41,19 +42,23 @@ function App() {
   };
 
   return (
-    <div className="container">
-      <MovieForm
-        newMovie={newMovie}
-        addMovie={addMovie}
-        inputChange={inputChange}
-        formSubmit={formSubmit}
-      />
-      <MovieList
-        movies={movies}
-        onEdit={editMovie}
-        onDelete={deleteMovie}
-      />
+    <div className="container row mt-3">
+      <div className="col-4 me-3">
+        <MovieForm
+          newMovie={newMovie}
+          addMovie={addMovie}
+          inputChange={inputChange}
+          formSubmit={formSubmit}
+        />
+        <MovieList
+          movies={movies}
+          onEdit={editMovie}
+          onDelete={deleteMovie}
+        />
+      </div>
+      <Joke/>
     </div>
+
   );
 }
 
